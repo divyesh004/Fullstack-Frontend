@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
- function SignUp() {
+function Signup() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -13,21 +13,21 @@ import { toast } from "react-toastify";
   const handleSubmit = (e) => {
     e.preventDefault();
     //logic
-   
-    axios.post(`${import.meta.env.VITE_BASEURL}/user/signup`,{name,email,password})
-    .then((res)=>{
-      console.log(res.data.message);
-      navigate("/sign-in")
-      toast.success(res.data.message)
-    })
-    .catch((err)=>{
-      console.log(err);
-      toast.error(err.response.data.message)
-    })
+
+    axios.post(`${import.meta.env.VITE_BASEURL}/user/signup`, { name, email, password })
+      .then((res) => {
+        console.log(res.data.message);
+        navigate("/sign-in")
+        toast.success(res.data.message)
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.response.data.message)
+      })
   };
 
   return (
-    <section style={{ backgroundColor: "#eee", minHeight: "100vh" ,paddingTop:"7%"}}>
+    <section style={{ backgroundColor: "#eee", minHeight: "100vh", paddingTop: "7%" }}>
       <div className="container py-3">
         <div className="row justify-content-center">
           <div className="col-lg-10 col-xl-9">
@@ -101,4 +101,4 @@ import { toast } from "react-toastify";
     </section>
   );
 }
-export default SignUp
+export default Signup
